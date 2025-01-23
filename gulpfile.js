@@ -21,14 +21,14 @@ gulp.task('scss', function () {
         .pipe(cleanCSS())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(paths.css))
-        .pipe(browserSync.stream());
+    // .pipe(browserSync.stream());
 });
 
 gulp.task('serve', function () {
-    browserSync.init({
-        proxy: 'http://nimrod-blocks/q',
-        notify: false,
-    });
+    // browserSync.init({
+    //     proxy: 'http://nimrod-blocks',
+    //     notify: false,
+    // });
 
     gulp.watch(paths.scss, gulp.series('scss'));
     gulp.watch(paths.php).on('change', browserSync.reload);
